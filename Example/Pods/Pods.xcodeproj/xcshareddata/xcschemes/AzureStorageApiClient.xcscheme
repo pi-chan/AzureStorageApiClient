@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "12A766FE935C8C25618C7E8A"
+               BlueprintIdentifier = "7AA5150AE23B2A8D468224A8"
                BuildableName = "AzureStorageApiClient.framework"
                BlueprintName = "AzureStorageApiClient"
                ReferencedContainer = "container:Pods.xcodeproj">

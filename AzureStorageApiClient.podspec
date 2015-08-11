@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "AzureStorageApiClient"
-  s.version          = "0.1.0"
+  s.version          = "0.1.1"
   s.summary          = "AzureStorageApiClient is api client library for Microsost Azure Storage in Swift."
   s.homepage         = "https://github.com/xoyip/AzureStorageApiClient"
   s.license          = 'MIT'
@@ -26,4 +26,5 @@ Pod::Spec.new do |s|
   s.dependency 'AFNetworking', '~> 2.5'
   s.dependency 'CryptoSwift', '~> 0.0'
   s.dependency 'XMLDictionary', '~> 1.4'
+  s.dependency 'Regex', '~> 0.2'
 end

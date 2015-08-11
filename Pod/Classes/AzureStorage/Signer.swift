@@ -8,6 +8,7 @@
 
 import Foundation
 import CryptoSwift
+import Regex
 
 extension AzureStorage {
     class Signer {

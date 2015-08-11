@@ -1,8 +1,7 @@
 {
   "name": "AzureStorageApiClient",
-  "version": "0.1.0",
-  "summary": "A short description of AzureStorageApiClient.",
-  "description": "An optional longer description of AzureStorageApiClient\n\n* Markdown format.\n* Don't worry about the indent, we strip it!",
+  "version": "0.1.1",
+  "summary": "AzureStorageApiClient is api client library for Microsost Azure Storage in Swift.",
   "homepage": "https://github.com/xoyip/AzureStorageApiClient",
   "license": "MIT",
   "authors": {
@@ -10,7 +9,11 @@
   },
   "source": {
     "git": "https://github.com/xoyip/AzureStorageApiClient.git",
-    "tag": "0.1.0"
+    "tag": "0.1.1"
+  },
+  "platforms": {
+    "osx": "10.10",
+    "ios": "8.0"
   },
   "requires_arc": true,
   "source_files": "Pod/Classes/**/*",
@@ -23,6 +26,9 @@
     ],
     "XMLDictionary": [
       "~> 1.4"
+    ],
+    "Regex": [
+      "~> 0.2"
     ]
   }
 }

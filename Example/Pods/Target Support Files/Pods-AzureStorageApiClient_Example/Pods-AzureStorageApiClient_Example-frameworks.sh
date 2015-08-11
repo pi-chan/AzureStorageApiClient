@@ -55,11 +55,13 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Pods-AzureStorageApiClient_Example/AFNetworking.framework'
   install_framework 'Pods-AzureStorageApiClient_Example/AzureStorageApiClient.framework'
   install_framework 'Pods-AzureStorageApiClient_Example/CryptoSwift.framework'
+  install_framework 'Pods-AzureStorageApiClient_Example/Regex.framework'
   install_framework 'Pods-AzureStorageApiClient_Example/XMLDictionary.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Pods-AzureStorageApiClient_Example/AFNetworking.framework'
   install_framework 'Pods-AzureStorageApiClient_Example/AzureStorageApiClient.framework'
   install_framework 'Pods-AzureStorageApiClient_Example/CryptoSwift.framework'
+  install_framework 'Pods-AzureStorageApiClient_Example/Regex.framework'
   install_framework 'Pods-AzureStorageApiClient_Example/XMLDictionary.framework'
 fi
