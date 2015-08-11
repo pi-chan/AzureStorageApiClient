@@ -1,0 +1,13 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'AzureStorageApiClient_Example', :exclusive => true do
+  pod "AzureStorageApiClient", :path => "../"
+end
+
+target 'AzureStorageApiClient_Tests', :exclusive => true do
+  pod "AzureStorageApiClient", :path => "../"
+
+  pod 'Quick', '~> 0.3.1'
+  pod 'Nimble'
+end
