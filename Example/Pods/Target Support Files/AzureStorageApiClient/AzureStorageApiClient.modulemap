@@ -1,6 +1,0 @@
-framework module AzureStorageApiClient {
-  umbrella header "AzureStorageApiClient-umbrella.h"
-
-  export *
-  module * { export * }
-}
