@@ -1,15 +1,15 @@
 //
 //  PeekMessageRequest.swift
-//  azurequeue
+//  AzureStorageApiClient
 //
 //  Created by Hiromasa Ohno on 2015/08/06.
-//  Copyright (c) 2015 CFlat. All rights reserved.
+//  Copyright (c) 2015 Hiromasa Ohno. All rights reserved.
 //
 
 import Foundation
 
 public extension AzureStorage {
-    public class PeekMessagesRequest: FetchMessagesRequest {
+    public class PeekMessagesRequest: GetMessagesRequestBase {
         override func parameters() -> [String] {
             var array = super.parameters()
             array.append("peekonly=true")

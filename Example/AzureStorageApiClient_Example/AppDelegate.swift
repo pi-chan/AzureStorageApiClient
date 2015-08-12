@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  AzureStorageApiClient_Example
 //
-//  Created by 大野浩誠 on 8/11/15.
+//  Created by Hiromasa Ohno on 8/11/15.
 //  Copyright (c) 2015 CocoaPods. All rights reserved.
 //
 

@@ -1,9 +1,9 @@
 //
-//  Azure.swift
-//  azurequeue
+//  Client.swift
+//  AzureStorageApiClient
 //
 //  Created by Hiromasa Ohno on 2015/07/30.
-//  Copyright (c) 2015 CFlat. All rights reserved.
+//  Copyright (c) 2015 Hiromasa Ohno. All rights reserved.
 //
 
 import Foundation
@@ -12,7 +12,7 @@ import XMLDictionary
 import CryptoSwift
 
 extension AzureStorage {
-    public class QueueClient {
+    public class Client {
         let scheme : String!
         let key : String!
         let name : String!
@@ -59,7 +59,10 @@ extension AzureStorage {
                 }
                 manager.POST(url, parameters: request.body(), success: success, failure: failure)
             case "PUT":
-                manager.PUT(url, parameters: nil, success: success, failure: failure)
+                manager.requestSerializer.setQueryStringSerializationWithBlock { (request, params, error) -> String! in
+                    return params as! String
+                }
+                manager.PUT(url, parameters: request.body(), success: success, failure: failure)
             case "DELETE":
                 manager.DELETE(url, parameters: nil, success: success, failure: failure)
             default:

@@ -1,9 +1,9 @@
 //
-//  AzureStorage.QueueMessage.swift
-//  azurequeue
+//  QueueMessage.swift
+//  AzureStorageApiClient
 //
 //  Created by Hiromasa Ohno on 2015/08/04.
-//  Copyright (c) 2015 CFlat. All rights reserved.
+//  Copyright (c) 2015 Hiromasa Ohno. All rights reserved.
 //
 
 import Foundation

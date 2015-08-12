@@ -10,9 +10,11 @@
 		004B764969E47FEA9219910D45A75DCF /* BeGreaterThanOrEqualTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EADBBABC3A84B739113BC43789C3A1 /* BeGreaterThanOrEqualTo.swift */; };
 		00A28A2D264DBFC0A42E666C1173F952 /* CreateQueueRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5ECC2C924CD89163034A7468ADBB05 /* CreateQueueRequest.swift */; };
 		00DC43A39560695FABD17C6B96F7E664 /* UIRefreshControl+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B4494954E4AD52BD924DF28CA259F11 /* UIRefreshControl+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0160049C1B7ACA6300B170D7 /* UpdateMessagesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0160049B1B7ACA6300B170D7 /* UpdateMessagesRequest.swift */; };
+		0160049E1B7ACC5900B170D7 /* PutMessageRequestBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0160049D1B7ACC5900B170D7 /* PutMessageRequestBase.swift */; };
 		0171EE6466F0C33481D4CFCE84447174 /* BeLogical.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59647364AB58C36D96CB77545F18233E /* BeLogical.swift */; };
+		0188E4991B79D49B0011ED1B /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0188E4981B79D49B0011ED1B /* Client.swift */; };
 		021DE5F635CDC956062AC036C625A74C /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 99549D7E18D3D6981740B0AC3F8A4929 /* AFNetworkReachabilityManager.m */; };
-		0286D57BF3F9B34F51BE5D04B2739CDB /* QueueClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEA17DAA334B1036F6F5CA238D60DE8 /* QueueClient.swift */; };
 		032B745A7AAF2F02320AE76F78E0291F /* RaisesException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5886B1B4520F3AB7C2FE95CEAC181930 /* RaisesException.swift */; };
 		057A96A477E419CBF2515E3E7409D643 /* BeLessThan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2038AF956B85B490D3BB35D91EEF7901 /* BeLessThan.swift */; };
 		058E77A76CC360A1152E9366A1CEEA33 /* AFNetworkReachabilityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = EADD8A66E41C22D4FFACC3208708BC03 /* AFNetworkReachabilityManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -176,7 +178,7 @@
 		D9C89C06A7AE4570ADB3FD77340D54B2 /* Pods-AzureStorageApiClient_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F04B86A3AA273F5366D5D453CA2F88 /* Pods-AzureStorageApiClient_Tests-dummy.m */; };
 		DD8E835686BB40CDC145356FAEF2C9E3 /* ChaCha20.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120DFB6182454615D7A018DF5D361CAB /* ChaCha20.swift */; };
 		E1C438D56024ED3C3B1DBFA2A8AA339B /* DSL.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7D592DA4FADFAB814BDE313052440A /* DSL.m */; };
-		E42C1F77681AD5F44EE07D24CF98513C /* FetchMessagesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546F1EBF14E10F89A1CFB025DF07F229 /* FetchMessagesRequest.swift */; };
+		E42C1F77681AD5F44EE07D24CF98513C /* GetMessagesRequestBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546F1EBF14E10F89A1CFB025DF07F229 /* GetMessagesRequestBase.swift */; };
 		E5751EDD4C030B56543263054AAECB30 /* Cipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8528BD51DE6B74644987AD6D080B31 /* Cipher.swift */; };
 		E593DE63F01625627B688FE20A5FE974 /* BeIdenticalTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C073D00083EBED2AB15BE89883E809 /* BeIdenticalTo.swift */; };
 		E5CA2B7628DE4531F5A2A6FA484994B9 /* QuickConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 723856907D9BCAA1990B9E363626EC88 /* QuickConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -312,6 +314,9 @@
 /* Begin PBXFileReference section */
 		00A8444B815E1118AB66915BF02EB31B /* AFURLSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLSessionManager.h; path = AFNetworking/AFURLSessionManager.h; sourceTree = "<group>"; };
 		0115A13F547AB7E2A42C456E84415D3E /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIWebView+AFNetworking.h"; path = "UIKit+AFNetworking/UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
+		0160049B1B7ACA6300B170D7 /* UpdateMessagesRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateMessagesRequest.swift; sourceTree = "<group>"; };
+		0160049D1B7ACC5900B170D7 /* PutMessageRequestBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PutMessageRequestBase.swift; sourceTree = "<group>"; };
+		0188E4981B79D49B0011ED1B /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		0454A9B60DBADF142049F1E65345FB6E /* Pods-AzureStorageApiClient_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AzureStorageApiClient_Example-umbrella.h"; sourceTree = "<group>"; };
 		06D83279ACC15B5358EBECD0F1E384E3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		071EC8AC226DEC55F610B97E9F3E2216 /* Pods_AzureStorageApiClient_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AzureStorageApiClient_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -374,7 +379,7 @@
 		508CF463E0AB1DC8F6A29F08CD678F1C /* UIActivityIndicatorView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIActivityIndicatorView+AFNetworking.m"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.m"; sourceTree = "<group>"; };
 		52D0B03860D79D1BA26991523A0D1E03 /* Regex.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Regex.swift; path = src/Regex.swift; sourceTree = "<group>"; };
 		534B14B5C7FF11DAFB007AB69F8B4BC3 /* Stringers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Stringers.swift; path = Nimble/Utils/Stringers.swift; sourceTree = "<group>"; };
-		546F1EBF14E10F89A1CFB025DF07F229 /* FetchMessagesRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FetchMessagesRequest.swift; sourceTree = "<group>"; };
+		546F1EBF14E10F89A1CFB025DF07F229 /* GetMessagesRequestBase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GetMessagesRequestBase.swift; sourceTree = "<group>"; };
 		56DAD986664A559CE8D88F7E32410552 /* AFNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AFNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		58441EAC1CE0B684558B4F55D847A080 /* Pods-AzureStorageApiClient_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AzureStorageApiClient_Tests-resources.sh"; sourceTree = "<group>"; };
 		5886B1B4520F3AB7C2FE95CEAC181930 /* RaisesException.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RaisesException.swift; path = Nimble/Matchers/RaisesException.swift; sourceTree = "<group>"; };
@@ -544,7 +549,6 @@
 		F8AED8C1F974ACADE5CC0886D24E8D77 /* Pods-AzureStorageApiClient_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AzureStorageApiClient_Example-dummy.m"; sourceTree = "<group>"; };
 		FBF318F9DA84E70F34C0B11094854380 /* Equal.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Equal.swift; path = Nimble/Matchers/Equal.swift; sourceTree = "<group>"; };
 		FC49C12CE6D8A5D724E47DCB7FCB01F2 /* BeAKindOf.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeAKindOf.swift; path = Nimble/Matchers/BeAKindOf.swift; sourceTree = "<group>"; };
-		FCEA17DAA334B1036F6F5CA238D60DE8 /* QueueClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = QueueClient.swift; sourceTree = "<group>"; };
 		FD83A2C7EB8D339A8304EFFBDBF23B46 /* QuickSpec.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QuickSpec.m; path = Quick/QuickSpec.m; sourceTree = "<group>"; };
 		FE08AE99E9EB5ED76DB406055D2B8A9E /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIWebView+AFNetworking.m"; path = "UIKit+AFNetworking/UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -963,11 +967,13 @@
 				8D5ECC2C924CD89163034A7468ADBB05 /* CreateQueueRequest.swift */,
 				6889B51A541282D1C90268A21088A800 /* DeleteMessageRequest.swift */,
 				92E71ADA3F19183823944C0602D024E3 /* DeleteQueueRequest.swift */,
-				546F1EBF14E10F89A1CFB025DF07F229 /* FetchMessagesRequest.swift */,
+				546F1EBF14E10F89A1CFB025DF07F229 /* GetMessagesRequestBase.swift */,
 				6656DBA8372A13090D2B672DAC929970 /* GetMessagesRequest.swift */,
 				EF7154BD30FF87D6B3A32378F3811D78 /* ListQueuesRequest.swift */,
 				EA828624002B5FFA36A23D3FBEFCB4FA /* PeekMessageRequest.swift */,
 				D4C29C8DA1D5BD592E98634599B468DF /* PutMessageRequest.swift */,
+				0160049D1B7ACC5900B170D7 /* PutMessageRequestBase.swift */,
+				0160049B1B7ACA6300B170D7 /* UpdateMessagesRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1077,6 +1083,7 @@
 			isa = PBXGroup;
 			children = (
 				D36D69E44E7B94FA1C7911E16F6CC27C /* AzureStorage.swift */,
+				0188E4981B79D49B0011ED1B /* Client.swift */,
 				16B246168B47B6E0BCFE549D811F9E34 /* Extensions.swift */,
 				C3F985E81E56F8A67DB7ED0D056C40A1 /* Request.swift */,
 				9FFBE5254957CAA11C4A2CAE945B0B56 /* Response.swift */,
@@ -1105,7 +1112,6 @@
 			isa = PBXGroup;
 			children = (
 				ACEC921AD7CB644465EAA4E9588026F8 /* Queue.swift */,
-				FCEA17DAA334B1036F6F5CA238D60DE8 /* QueueClient.swift */,
 				F178A70B0967ABFDCD1F4CD80F0CBFB0 /* QueueMessage.swift */,
 				8D0F6DE0E81E18C18E17A015B39E42DC /* Request */,
 			);
@@ -1514,18 +1520,20 @@
 			files = (
 				7798ADA23C7BFFE701EFB0632515EAF9 /* AzureStorage.swift in Sources */,
 				C8985A670D4972D60A4E6FAEB3ACAE85 /* AzureStorageApiClient-dummy.m in Sources */,
+				0188E4991B79D49B0011ED1B /* Client.swift in Sources */,
 				096AA71BB0B9AB701A04BCCC75CF7D04 /* ClearMessagesRequest.swift in Sources */,
 				00A28A2D264DBFC0A42E666C1173F952 /* CreateQueueRequest.swift in Sources */,
 				69FD4FA1E469FE580B62271230BC38FB /* DeleteMessageRequest.swift in Sources */,
 				A2EC419306130F4C217A0FEBF7B70DF6 /* DeleteQueueRequest.swift in Sources */,
 				ADD973CA275C629D23647DC83B66C848 /* Extensions.swift in Sources */,
-				E42C1F77681AD5F44EE07D24CF98513C /* FetchMessagesRequest.swift in Sources */,
+				0160049E1B7ACC5900B170D7 /* PutMessageRequestBase.swift in Sources */,
+				E42C1F77681AD5F44EE07D24CF98513C /* GetMessagesRequestBase.swift in Sources */,
 				15A518219E7D3B591C0604E0E070212F /* GetMessagesRequest.swift in Sources */,
 				9762522E6126CC17D2BDF2FA0BFBA1A5 /* ListQueuesRequest.swift in Sources */,
 				B8ED160E637012134BBD4223CD21CF33 /* PeekMessageRequest.swift in Sources */,
 				755C6A967DCCA1356589292464CB3D39 /* PutMessageRequest.swift in Sources */,
+				0160049C1B7ACA6300B170D7 /* UpdateMessagesRequest.swift in Sources */,
 				C022DA0474E37C32B62BD34ABF4B0A74 /* Queue.swift in Sources */,
-				0286D57BF3F9B34F51BE5D04B2739CDB /* QueueClient.swift in Sources */,
 				D43F3B8CE8D66B20A69F16F0F24F15B6 /* QueueMessage.swift in Sources */,
 				849A8D3DFB11CD867C4A518F41B565AE /* Request.swift in Sources */,
 				966CD97B378954308B181841D5B48EA3 /* Response.swift in Sources */,

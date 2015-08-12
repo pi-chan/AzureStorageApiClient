@@ -1,15 +1,15 @@
 //
-//  FetchMessageRequest.swift
-//  azurequeue
+//  GetMessagesRequestBase.swift
+//  AzureStorageApiClient
 //
 //  Created by Hiromasa Ohno on 2015/08/06.
-//  Copyright (c) 2015 CFlat. All rights reserved.
+//  Copyright (c) 2015 Hiromasa Ohno. All rights reserved.
 //
 
 import Foundation
 
 public extension AzureStorage {
-    public class FetchMessagesRequest: Request {
+    public class GetMessagesRequestBase: Request {
         public let method = "GET"
         let queue : String
         let numberOfMessages : Int?
@@ -28,13 +28,6 @@ public extension AzureStorage {
                 return base
             }
             return base + "?" + join("&", params)
-        }
-        
-        func parameters() -> [String] {
-            if let number = numberOfMessages {
-                return ["numofmessages=\(number)"]
-            }
-            return []
         }
         
         public func body() -> String {
@@ -63,6 +56,13 @@ public extension AzureStorage {
                 }
             }
             return messages
+        }
+        
+        internal func parameters() -> [String] {
+            if let number = numberOfMessages {
+                return ["numofmessages=\(number)"]
+            }
+            return []
         }
     }
 }
