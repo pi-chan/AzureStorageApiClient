@@ -8,8 +8,8 @@
 
 import Foundation
 
-public extension AzureStorage {
-    public class CreateQueueRequest: Request {
+public extension AzureQueue {
+    public class CreateQueueRequest:  Request {
         public let method = "PUT"
         let queue : String
 

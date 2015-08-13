@@ -1,5 +1,5 @@
 //
-//  QueueMessage.swift
+//  Message.swift
 //  AzureStorageApiClient
 //
 //  Created by Hiromasa Ohno on 2015/08/04.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-public extension AzureStorage {
-    public class QueueMessage {
+public extension AzureQueue {
+    public class Message {
         public let messageId: String!
         public let messageText: String!
         public let dequeueCount: String!
@@ -29,7 +29,7 @@ public extension AzureStorage {
             timeNextVisible = dictionary["TimeNextVisible"] as? String
             
             if let encodedText = dictionary["MessageText"] as? String {
-                messageText = QueueMessage.decodeMessage(encodedText)
+                messageText = Message.decodeMessage(encodedText)
                 rawDictionary["MessageText"] = messageText
             } else {
                 messageText = nil

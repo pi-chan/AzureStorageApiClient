@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		010F7F871B7ADF65003879C5 /* FooBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010F7F861B7ADF65003879C5 /* FooBar.swift */; };
 		012100791B79907600B20F77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012100781B79907600B20F77 /* AppDelegate.swift */; };
 		0121007B1B79907600B20F77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0121007A1B79907600B20F77 /* ViewController.swift */; };
 		0121007E1B79907600B20F77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0121007C1B79907600B20F77 /* Main.storyboard */; };
@@ -21,7 +20,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		010F7F861B7ADF65003879C5 /* FooBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FooBar.swift; sourceTree = "<group>"; };
 		012100741B79907600B20F77 /* AzureStorageApiClient_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AzureStorageApiClient_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		012100771B79907600B20F77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		012100781B79907600B20F77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = AzureStorageApiClient_Example/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
@@ -77,7 +75,6 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
-				010F7F861B7ADF65003879C5 /* FooBar.swift */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for AzureStorageApiClient */,
 				607FACE81AFB9204008FA782 /* Tests */,
@@ -358,7 +355,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0188E4971B79D4270011ED1B /* Config.sample.swift in Sources */,
-				010F7F871B7ADF65003879C5 /* FooBar.swift in Sources */,
 				0121007B1B79907600B20F77 /* ViewController.swift in Sources */,
 				012100791B79907600B20F77 /* AppDelegate.swift in Sources */,
 				0188E4961B79D4270011ED1B /* Config.swift in Sources */,

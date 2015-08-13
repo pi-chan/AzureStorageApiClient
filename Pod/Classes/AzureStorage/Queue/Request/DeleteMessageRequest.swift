@@ -9,8 +9,8 @@
 import Foundation
 import Regex
 
-public extension AzureStorage {
-    public class DeleteMessageRequest: Request {
+public extension AzureQueue {
+    public class DeleteMessageRequest:  Request {
         public let method = "DELETE"
         let queue : String
         let messageId : String

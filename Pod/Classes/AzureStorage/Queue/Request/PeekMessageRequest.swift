@@ -8,7 +8,7 @@
 
 import Foundation
 
-public extension AzureStorage {
+public extension AzureQueue {
     public class PeekMessagesRequest: GetMessagesRequestBase {
         override func parameters() -> [String] {
             var array = super.parameters()

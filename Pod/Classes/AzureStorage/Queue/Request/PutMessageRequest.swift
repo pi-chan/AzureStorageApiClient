@@ -8,7 +8,7 @@
 
 import Foundation
 
-public extension AzureStorage {
+public extension AzureQueue {
     public class PutMessagesRequest: PutMessagesRequestBase {
         override public var method : String { get { return "POST" } }
         var messageTTL : Int?

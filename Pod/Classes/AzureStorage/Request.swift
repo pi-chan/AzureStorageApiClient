@@ -18,4 +18,3 @@ public protocol Request {
     func body() -> String
     func convertJSONObject(object: AnyObject?) -> Response?
 }
-

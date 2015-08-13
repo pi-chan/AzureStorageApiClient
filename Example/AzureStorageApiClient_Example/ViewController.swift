@@ -35,47 +35,47 @@ class ViewController: UIViewController {
     }
     
     func listQueues() {
-        let request = AzureStorage.ListQueuesRequest()
+        let request = AzureQueue.ListQueuesRequest()
         client?.call(request, handler: handleResponse)
     }
     
     func createQueue() {
-        let request = AzureStorage.CreateQueueRequest(queue: "queuename")
+        let request = AzureQueue.CreateQueueRequest(queue: "queuename")
         client?.call(request, handler: handleResponse)
     }
     
     func deleteQueue() {
-        let request = AzureStorage.DeleteQueueRequest(queue: "queuename")
+        let request = AzureQueue.DeleteQueueRequest(queue: "queuename")
         client?.call(request, handler: handleResponse)
     }
     
     func putMessage() {
-        let request = AzureStorage.PutMessagesRequest(queue: "queuename", message: "a message", messageTTL: 3600, visibilityTimeout: 600)
+        let request = AzureQueue.PutMessagesRequest(queue: "queuename", message: "a message", messageTTL: 3600, visibilityTimeout: 600)
         client?.call(request, handler: handleResponse)
     }
     
     func getMessages() {
-        let request = AzureStorage.GetMessagesRequest(queue: "queuename", visibilityTimeout: 600, numberOfMessages: 32)
+        let request = AzureQueue.GetMessagesRequest(queue: "queuename", visibilityTimeout: 600, numberOfMessages: 32)
         client?.call(request, handler: handleResponse)
     }
     
     func peekMessage() {
-        let request = AzureStorage.PeekMessagesRequest(queue: "queuename", numberOfMessages: 32)
+        let request = AzureQueue.PeekMessagesRequest(queue: "queuename", numberOfMessages: 32)
         client?.call(request, handler: handleResponse)
     }
     
     func deleteMessage() {
-        let request = AzureStorage.DeleteMessageRequest(queue: "queuename", messageId: "message-id(UUID)", popReceipt: "pop-receipt")
+        let request = AzureQueue.DeleteMessageRequest(queue: "queuename", messageId: "message-id(UUID)", popReceipt: "pop-receipt")
         client?.call(request, handler: handleResponse)
     }
     
     func clearMessage() {
-        let request = AzureStorage.ClearMessagesRequest(queue: "queuename")
+        let request = AzureQueue.ClearMessagesRequest(queue: "queuename")
         client?.call(request, handler: handleResponse)
     }
     
     func updateMessage() {
-        let request = AzureStorage.UpdateMessageRequest(queue: "queuename", message: "new message", messageId: "message-id(UUID)", popReceipt: "pop-receipt", visibilityTimeout: 3600)
+        let request = AzureQueue.UpdateMessageRequest(queue: "queuename", message: "new message", messageId: "message-id(UUID)", popReceipt: "pop-receipt", visibilityTimeout: 3600)
         client?.call(request, handler: handleResponse)
     }
 }

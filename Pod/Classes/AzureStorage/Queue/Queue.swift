@@ -8,7 +8,7 @@
 
 import Foundation
 
-public extension AzureStorage {
+public extension AzureQueue {
     public class Queue {
         public let name: String!
         

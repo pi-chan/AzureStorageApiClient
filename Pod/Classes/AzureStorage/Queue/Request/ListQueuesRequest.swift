@@ -8,11 +8,11 @@
 
 import Foundation
 
-public extension AzureStorage {
-    public class ListQueuesRequest: Request {
+public extension AzureQueue {
+    public class ListQueuesRequest:  Request {
         public let method = "GET"
         
-        public typealias Response = [AzureStorage.Queue]
+        public typealias Response = [Queue]
         
         public init() {
         }
@@ -30,7 +30,7 @@ public extension AzureStorage {
         }
         
         public func convertJSONObject(object: AnyObject?) -> Response? {
-            var queues : [AzureStorage.Queue] = []
+            var queues : [Queue] = []
             let response = object as? NSDictionary
             if let aDicOrArray: AnyObject = response?.valueForKeyPath("Queues.Queue") {
                 var dictionaries : [NSDictionary] = []
@@ -41,7 +41,7 @@ public extension AzureStorage {
                 }
                 
                 for dictionary in dictionaries {
-                    if let queue = AzureStorage.Queue(dictionary: dictionary) {
+                    if let queue = Queue(dictionary: dictionary) {
                         queues.append(queue)
                     }
                 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public extension AzureStorage {
+public extension AzureQueue {
     public class GetMessagesRequest: GetMessagesRequestBase {
         let visibilityTimeout : Int
         

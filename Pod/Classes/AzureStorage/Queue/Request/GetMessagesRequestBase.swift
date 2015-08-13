@@ -8,13 +8,13 @@
 
 import Foundation
 
-public extension AzureStorage {
-    public class GetMessagesRequestBase: Request {
+public extension AzureQueue {
+    public class GetMessagesRequestBase:  Request {
         public let method = "GET"
         let queue : String
         let numberOfMessages : Int?
         
-        public typealias Response = [AzureStorage.QueueMessage]
+        public typealias Response = [Message]
         
         public init(queue : String, numberOfMessages : Int?) {
             self.queue = queue
@@ -39,7 +39,7 @@ public extension AzureStorage {
         }
         
         public func convertJSONObject(object: AnyObject?) -> Response? {
-            var messages : [AzureStorage.QueueMessage] = []
+            var messages : [Message] = []
             let response = object as? NSDictionary
             if let aDicOrArray: AnyObject = response?.valueForKeyPath("QueueMessage") {
                 var dictionaries : [NSDictionary] = []
@@ -50,7 +50,7 @@ public extension AzureStorage {
                 }
                 
                 for dictionary in dictionaries {
-                    if let message = AzureStorage.QueueMessage(dictionary: dictionary) {
+                    if let message = Message(dictionary: dictionary) {
                         messages.append(message)
                     }
                 }

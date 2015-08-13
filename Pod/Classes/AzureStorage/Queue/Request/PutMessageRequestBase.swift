@@ -8,8 +8,8 @@
 
 import Foundation
 
-public extension AzureStorage {
-    public class PutMessagesRequestBase: Request {
+public extension AzureQueue {
+    public class PutMessagesRequestBase:  Request {
         public var method : String { get { return "" } }
         let queue : String
         var message : String

@@ -9,7 +9,7 @@
 import Foundation
 import Regex
 
-public extension AzureStorage {
+public extension AzureQueue {
     public class UpdateMessageRequest: PutMessagesRequestBase {
         override public var method : String { get { return "PUT" } }
         let messageId : String

@@ -8,8 +8,8 @@
 
 import Foundation
 
-public extension AzureStorage {
-    public class ClearMessagesRequest: Request {
+public extension AzureQueue {
+    public class ClearMessagesRequest:  Request {
         public let method = "DELETE"
         let queue : String
         

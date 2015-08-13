@@ -9,3 +9,5 @@
 import Foundation
 
 public class AzureStorage {}
+public class AzureQueue {}
+
