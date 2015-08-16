@@ -15,6 +15,7 @@ public protocol Request {
     
     func path() -> String
     func additionalHeaders() -> [String:String]
-    func body() -> String
-    func convertJSONObject(object: AnyObject?) -> Response?
+    func body() -> NSData?
+    func convertResponseObject(object: AnyObject?) -> Response?
+    func responseTypes() -> Set<String>?
 }

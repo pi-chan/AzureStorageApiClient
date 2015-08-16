@@ -30,17 +30,17 @@ public extension AzureQueue {
             return base + "?" + join("&", params)
         }
         
-        public func body() -> String {
-            return ""
+        public func body() -> NSData? {
+            return nil
         }
         
         public func additionalHeaders() -> [String : String] {
             return [:]
         }
         
-        public func convertJSONObject(object: AnyObject?) -> Response? {
+        public func convertResponseObject(object: AnyObject?) -> Response? {
             var messages : [Message] = []
-            let response = object as? NSDictionary
+            let response = AzureStorage.xmlResponseToDictionary(object)
             if let aDicOrArray: AnyObject = response?.valueForKeyPath("QueueMessage") {
                 var dictionaries : [NSDictionary] = []
                 if let dics = aDicOrArray as? [NSDictionary] {
@@ -56,6 +56,10 @@ public extension AzureQueue {
                 }
             }
             return messages
+        }
+        
+        public func responseTypes() -> Set<String>? {
+            return ["application/xml"]
         }
         
         internal func parameters() -> [String] {

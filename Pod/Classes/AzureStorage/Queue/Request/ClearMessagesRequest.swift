@@ -23,16 +23,20 @@ public extension AzureQueue {
             return "/\(queue)/messages"
         }
         
-        public func body() -> String {
-            return ""
+        public func body() -> NSData? {
+            return nil
         }
         
         public func additionalHeaders() -> [String : String] {
             return ["Content-Length": "0"]
         }
         
-        public func convertJSONObject(object: AnyObject?) -> Response? {
+        public func convertResponseObject(object: AnyObject?) -> Response? {
             return true
+        }
+        
+        public func responseTypes() -> Set<String>? {
+            return []
         }
     }
 }

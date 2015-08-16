@@ -31,27 +31,30 @@ public extension AzureQueue {
         }
         
         public func additionalHeaders() -> [String:String] {
-            var headers : [String:String] = [:]
-            headers["Content-Length"] = "\(body().lengthOfBytesUsingEncoding(NSUTF8StringEncoding))"
-            headers["Content-Type"] = "application/atom+xml; charset=utf-8"
-            headers["Content-Encoding"] = "UTF-8"
-            
-            var data = body().dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
-            var md5data = data?.md5()
-            if let md5 = md5data?.base64EncodedStringWithOptions(.Encoding64CharacterLineLength) {
-                headers["Content-Md5"] = md5
+            var headers = ["Content-Type": "application/atom+xml; charset=utf-8", "Content-Encoding": "UTF-8"]
+            if let data = body() {
+                headers["Content-Length"] = "\(data.length)"
+                var md5data = data.md5()
+                if let md5 = md5data?.base64EncodedStringWithOptions(.Encoding64CharacterLineLength) {
+                    headers["Content-Md5"] = md5
+                }
             }
             return headers
         }
         
-        public func body() -> String {
+        public func body() -> NSData? {
             let data : NSData = message.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
             let encoded = data.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
-            return "<?xml version=\"1.0\"?>\n<QueueMessage>\n  <MessageText>\(encoded)\n</MessageText>\n</QueueMessage>\n"
+            let bodyString = "<?xml version=\"1.0\"?>\n<QueueMessage>\n  <MessageText>\(encoded)\n</MessageText>\n</QueueMessage>\n"
+            return bodyString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
         }
         
-        public func convertJSONObject(object: AnyObject?) -> Response? {
+        public func convertResponseObject(object: AnyObject?) -> Response? {
             return true
+        }
+        
+        public func responseTypes() -> Set<String>? {
+            return [""]
         }
         
         internal func parameters() -> [String] {

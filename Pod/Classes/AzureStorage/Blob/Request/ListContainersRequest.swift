@@ -8,11 +8,11 @@
 
 import Foundation
 
-public extension AzureQueue {
-    public class ListQueuesRequest:  Request {
+public extension AzureBlob {
+    public class ListContainersRequest:  Request {
         public let method = "GET"
         
-        public typealias Response = [Queue]
+        public typealias Response = [Container]
         
         public init() {
         }
@@ -30,9 +30,9 @@ public extension AzureQueue {
         }
         
         public func convertResponseObject(object: AnyObject?) -> Response? {
-            var queues : [Queue] = []
+            var containers : [Container] = []
             let response = AzureStorage.xmlResponseToDictionary(object)
-            if let aDicOrArray: AnyObject = response?.valueForKeyPath("Queues.Queue") {
+            if let aDicOrArray: AnyObject = response?.valueForKeyPath("Containers.Container") {
                 var dictionaries : [NSDictionary] = []
                 if let dics = aDicOrArray as? [NSDictionary] {
                     dictionaries = dics
@@ -41,12 +41,12 @@ public extension AzureQueue {
                 }
                 
                 for dictionary in dictionaries {
-                    if let queue = Queue(dictionary: dictionary) {
-                        queues.append(queue)
+                    if let container = Container(dictionary: dictionary) {
+                        containers.append(container)
                     }
                 }
             }
-            return queues
+            return containers
         }
         
         public func responseTypes() -> Set<String>? {

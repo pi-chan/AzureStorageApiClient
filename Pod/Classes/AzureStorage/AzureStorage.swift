@@ -7,7 +7,17 @@
 //
 
 import Foundation
+import XMLDictionary
 
-public class AzureStorage {}
+public class AzureStorage {
+    class func xmlResponseToDictionary(responseObject: AnyObject?) -> NSDictionary? {
+        if let data = responseObject as? NSData {
+            let parser = NSXMLParser(data: data)
+            return NSDictionary(XMLParser: parser)
+        } else {
+            return nil
+        }
+    }
+}
+public class AzureBlob {}
 public class AzureQueue {}
-

@@ -1,26 +1,26 @@
 //
-//  CreateQueueRequest.swift
-//  AzureStorageApiClient
+//  CreateContainerRequest.swift
+//  Pods
 //
-//  Created by Hiromasa Ohno on 2015/08/07.
-//  Copyright (c) 2015 Hiromasa Ohno. All rights reserved.
+//  Created by Hiromasa Ohno on 8/13/15.
+//
 //
 
 import Foundation
 
-public extension AzureQueue {
-    public class CreateQueueRequest:  Request {
+public extension AzureBlob {
+    public class CreateContainerRequest:  Request {
         public let method = "PUT"
-        let queue : String
-
+        let container : String!
+        
         public typealias Response = Bool
         
-        public init(queue : String) {
-            self.queue = queue
+        public init(container: String) {
+            self.container = container
         }
         
         public func path() -> String {
-            return "/\(queue)"
+            return "/\(container)?restype=container"
         }
         
         public func body() -> NSData? {
@@ -28,7 +28,7 @@ public extension AzureQueue {
         }
         
         public func additionalHeaders() -> [String : String] {
-            return ["Content-Length": "0"]
+            return ["Content-Type": "", "Content-Length": "0"]
         }
         
         public func convertResponseObject(object: AnyObject?) -> Response? {

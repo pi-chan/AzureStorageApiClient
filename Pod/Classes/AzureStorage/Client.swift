@@ -8,10 +8,10 @@
 
 import Foundation
 import AFNetworking
-import XMLDictionary
 import CryptoSwift
 
 extension AzureStorage {
+   
     public class Client {
         let scheme : String!
         let key : String!
@@ -25,21 +25,39 @@ extension AzureStorage {
             domain = accountDomain
         }
         
+        internal func service() -> String {
+            return ""
+        }
+        
         private func host() -> String {
-            return "\(name).queue.\(domain)"
+            return "\(name).\(service()).\(domain)"
         }
         
         public func call<T: Request>(request: T, handler: (Response<T.Response>) -> Void = { r in }) {
+            
+            let handleError = { () -> Void in
+                let userInfo = [NSLocalizedDescriptionKey: "unresolved error occurred."]
+                let error = NSError(domain: "WebAPIErrorDomain", code: 0, userInfo: userInfo)
+                handler(Response(error))
+            }
+            
             let success = { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-                let dictionary = XMLDictionaryParser.sharedInstance().dictionaryWithParser(responseObject as? NSXMLParser)
                 let statusCode = (task.response as? NSHTTPURLResponse)?.statusCode
-                switch (statusCode, request.convertJSONObject(dictionary)) {
+                switch (statusCode, request.convertResponseObject(responseObject)) {
                 case (.Some(200..<300), .Some(let response)):
                     handler(Response(response))
                 default:
-                    let userInfo = [NSLocalizedDescriptionKey: "unresolved error occurred."]
-                    let error = NSError(domain: "WebAPIErrorDomain", code: 0, userInfo: userInfo)
-                    handler(Response(error))
+                    handleError()
+                }
+            }
+            
+            let headSuccess = { (task: NSURLSessionDataTask!) -> Void in
+                let response = task.response as? NSHTTPURLResponse
+                switch (response?.statusCode, request.convertResponseObject(response?.allHeaderFields)) {
+                case (.Some(200..<300), .Some(let response)):
+                    handler(Response(response))
+                default:
+                    handleError()
                 }
             }
             
@@ -51,17 +69,13 @@ extension AzureStorage {
             let manager = configuredManager(request)
             
             switch request.method {
+            case "HEAD":
+                manager.HEAD(url, parameters: nil, success: headSuccess, failure: failure)
             case "GET":
                 manager.GET(url, parameters: nil, success: success, failure: failure)
             case "POST":
-                manager.requestSerializer.setQueryStringSerializationWithBlock { (request, params, error) -> String! in
-                    return params as! String
-                }
                 manager.POST(url, parameters: request.body(), success: success, failure: failure)
             case "PUT":
-                manager.requestSerializer.setQueryStringSerializationWithBlock { (request, params, error) -> String! in
-                    return params as! String
-                }
                 manager.PUT(url, parameters: request.body(), success: success, failure: failure)
             case "DELETE":
                 manager.DELETE(url, parameters: nil, success: success, failure: failure)
@@ -83,11 +97,15 @@ extension AzureStorage {
             headers["Authorization"] = "SharedKey \(name):\(sign)"
             
             var manager = AFHTTPSessionManager()
+            if let data = request.body() {
+                manager.requestSerializer = AzureStorageRequetSerializer()
+            }
             for (key, value) in headers {
                 manager.requestSerializer.setValue(value, forHTTPHeaderField: key)
             }
-            manager.responseSerializer = AFXMLParserResponseSerializer()
-            manager.responseSerializer.acceptableContentTypes = ["application/xml"]
+            //manager.responseSerializer = AFXMLParserResponseSerializer()
+            manager.responseSerializer = AFHTTPResponseSerializer()
+            manager.responseSerializer.acceptableContentTypes = request.responseTypes()
             return manager
         }
         

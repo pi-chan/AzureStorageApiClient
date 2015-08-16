@@ -1,26 +1,26 @@
 //
-//  CreateQueueRequest.swift
-//  AzureStorageApiClient
+//  DeleteContainerRequest.swift
+//  Pods
 //
-//  Created by Hiromasa Ohno on 2015/08/07.
-//  Copyright (c) 2015 Hiromasa Ohno. All rights reserved.
+//  Created by Hiromasa Ohno on 8/13/15.
+//
 //
 
 import Foundation
 
-public extension AzureQueue {
-    public class CreateQueueRequest:  Request {
-        public let method = "PUT"
-        let queue : String
-
+public extension AzureBlob {
+    public class DeleteContainerRequest: Request {
+        public let method = "DELETE"
+        let container : String
+        
         public typealias Response = Bool
         
-        public init(queue : String) {
-            self.queue = queue
+        public init(container : String) {
+            self.container = container
         }
         
         public func path() -> String {
-            return "/\(queue)"
+            return "/\(container)?restype=container"
         }
         
         public func body() -> NSData? {
