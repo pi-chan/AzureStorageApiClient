@@ -8,10 +8,10 @@
 
 import Foundation
 
-extension AzureStorage {
+public extension AzureStorage {
     public class Item {
         let rawDictionary: NSMutableDictionary
-        init(dictionary: NSDictionary) {
+        required public init(dictionary: NSDictionary) {
             rawDictionary = NSMutableDictionary(dictionary: dictionary)
         }
         

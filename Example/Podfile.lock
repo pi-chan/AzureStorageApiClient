@@ -20,7 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - AzureStorageApiClient (1.2):
+  - AzureStorageApiClient (1.2.1):
     - AFNetworking (~> 2.5)
     - CryptoSwift (~> 0.0)
     - Regex (~> 0.2)
@@ -42,7 +42,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
-  AzureStorageApiClient: 38943b36d2e636f612f9af5f64ec37b4ac6814e4
+  AzureStorageApiClient: 6a56f06da12a6daa79abdd35465bab63d3693b90
   CryptoSwift: 33e2ba400d514a054c69e9f9f6c08a992e42f91c
   Nimble: 8bee528e5fcc403653076545db562d2b5db7bb87
   Quick: 824572d3d198d51e52cf4aa722cebf7e59952a35

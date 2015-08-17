@@ -12,7 +12,7 @@ public extension AzureQueue {
     public class Queue : AzureStorage.Item {
         public var name : String? { get { return rawDictionary.valueForKeyPath("Name") as? String } }
         
-        override init(dictionary: NSDictionary) {
+        required public init(dictionary: NSDictionary) {
             super.init(dictionary: dictionary)
         }
     }

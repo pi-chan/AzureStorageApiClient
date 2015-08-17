@@ -13,7 +13,7 @@ public extension AzureBlob {
         public var name : String? { get { return rawDictionary.valueForKeyPath("Name") as? String } }
         public var contentType : String? { get { return rawDictionary.valueForKeyPath("Properties.Content-Type") as? String } }
         
-        override init(dictionary: NSDictionary) {
+        required public init(dictionary: NSDictionary) {
             super.init(dictionary: dictionary)
         }
     }

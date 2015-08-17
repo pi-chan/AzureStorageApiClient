@@ -9,8 +9,8 @@
 import Foundation
 
 public class Collection<T> {
-    let items : [T]
-    let nextMarker : String?
+    public let items : [T]
+    public let nextMarker : String?
     
     init(items: [T], nextMarker: String?) {
         self.items = items

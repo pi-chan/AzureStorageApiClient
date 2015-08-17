@@ -10,7 +10,7 @@ import Foundation
 
 public extension AzureBlob {
     public class Container : AzureStorage.Item {
-        override init(dictionary: NSDictionary) {
+        required public init(dictionary: NSDictionary) {
             super.init(dictionary: dictionary)
         }
     }

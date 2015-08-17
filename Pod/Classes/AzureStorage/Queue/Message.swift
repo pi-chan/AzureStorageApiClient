@@ -18,7 +18,7 @@ public extension AzureQueue {
         public var popReceipt: String? { get { return rawDictionary.valueForKeyPath("PopReceipt") as? String } }
         public var timeNextVisible: String? { get { return rawDictionary.valueForKeyPath("TimeNextVisible") as? String } }
         
-        override init(dictionary: NSDictionary) {
+        required public init(dictionary: NSDictionary) {
             super.init(dictionary: dictionary)
             if var encodedText = dictionary["MessageText"] as? String {
                 rawDictionary["MessageText"] = ResponseUtility.decodeMessage(encodedText)
