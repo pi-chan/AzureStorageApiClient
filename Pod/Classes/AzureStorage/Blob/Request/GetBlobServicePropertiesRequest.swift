@@ -1,26 +1,24 @@
 //
-//  DeleteContainerRequest.swift
+//  GetBlobServicePropertiesRequest.swift
 //  Pods
 //
-//  Created by Hiromasa Ohno on 8/13/15.
+//  Created by Hiromasa Ohno on 8/17/15.
 //
 //
 
 import Foundation
 
 public extension AzureBlob {
-    public class DeleteContainerRequest: Request {
-        public let method = "DELETE"
-        let container : String
+    public class GetBlobServicePropertiesRequest: Request {
+        public let method = "GET"
+
+        public typealias Response = NSDictionary
         
-        public typealias Response = Bool
-        
-        public init(container : String) {
-            self.container = container
+        public init() {
         }
         
         public func path() -> String {
-            return "/\(container)?restype=container"
+            return "/?restype=service&comp=properties"
         }
         
         public func body() -> NSData? {
@@ -28,15 +26,16 @@ public extension AzureBlob {
         }
         
         public func additionalHeaders() -> [String : String] {
-            return ["Content-Length": "0"]
+            return [:]
         }
         
         public func convertResponseObject(object: AnyObject?) -> Response? {
-            return true
+            let response = ResponseUtility.xmlResponseToDictionary(object)
+            return response
         }
         
         public func responseTypes() -> Set<String>? {
-            return nil
+            return ["application/xml"]
         }
     }
 }

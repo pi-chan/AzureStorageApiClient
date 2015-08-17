@@ -31,15 +31,7 @@ public extension AzureQueue {
         }
         
         public func additionalHeaders() -> [String:String] {
-            var headers = ["Content-Type": "application/atom+xml; charset=utf-8", "Content-Encoding": "UTF-8"]
-            if let data = body() {
-                headers["Content-Length"] = "\(data.length)"
-                var md5data = data.md5()
-                if let md5 = md5data?.base64EncodedStringWithOptions(.Encoding64CharacterLineLength) {
-                    headers["Content-Md5"] = md5
-                }
-            }
-            return headers
+            return RequestUtility.headerForXmlBody(body())
         }
         
         public func body() -> NSData? {

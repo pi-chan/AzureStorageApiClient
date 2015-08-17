@@ -17,27 +17,27 @@ API with ✅ is supported. I'll continue to implement other APIs.
 
 ### [Blob Service REST API](https://msdn.microsoft.com/en-us//library/azure/dd135733.aspx "Blob Service REST API")
 
-- ✅List Containers
-- Set Blob Service Properties
-- Get Blob Service Properties
+- ✅ List Containers
+- ✅ Set Blob Service Properties (updating CORS only)
+- ✅ Get Blob Service Properties
 - Preflight Blob Request
 - Get Blob Service Stats
-- ✅Create Container
+- ✅ Create Container
 - Get Container Properties
 - Get Container Metadata
 - Set Container Metadata
 - Get Container ACL
 - Set Container ACL
 - Lease Container
-- ✅Delete Container
-- List Blobs
-- ✅Put Blob
-- ✅Get Blob
-- ✅Get Blob Properties
+- ✅ Delete Container
+- ✅ List Blobs
+- ✅ Put Blob
+- ✅ Get Blob
+- ✅ Get Blob Properties
 - Set Blob Properties
 - Get Blob Metadata
 - Set Blob Metadata
-- Delete Blob
+- ✅ Delete Blob
 - Lease Blob
 - Snapshot Blob
 - Copy Blob
@@ -53,21 +53,21 @@ API with ✅ is supported. I'll continue to implement other APIs.
 
 - Set Queue Service Properties
 - Get Queue Service Properties
-- ✅List Queues
+- ✅ List Queues
 - Preflight Queue Request
 - Get Queue Service Stats
-- ✅Create Queue
-- ✅Delete Queue
+- ✅ Create Queue
+- ✅ Delete Queue
 - Get Queue Metadata
 - Set Queue Metadata
 - Get Queue ACL
 - Set Queue ACL
-- ✅Put Message
-- ✅Get Messages
-- ✅Peek Messages
-- ✅Delete Message
-- ✅Clear Messages
-- ✅Update Message
+- ✅ Put Message
+- ✅ Get Messages
+- ✅ Peek Messages
+- ✅ Delete Message
+- ✅ Clear Messages
+- ✅ Update Message
 
 ## Usage
 

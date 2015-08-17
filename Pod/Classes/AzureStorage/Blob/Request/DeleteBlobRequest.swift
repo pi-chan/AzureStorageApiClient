@@ -1,20 +1,20 @@
 //
-//  GetBlobPropertiesRequest.swift
+//  DeleteBlobRequest.swift
 //  Pods
 //
-//  Created by Hiromasa Ohno on 8/16/15.
+//  Created by Hiromasa Ohno on 8/17/15.
 //
 //
 
 import Foundation
 
 public extension AzureBlob {
-    public class GetBlobPropertiesRequest: Request {
-        public let method = "HEAD"
+    public class DeleteBlobRequest: Request {
+        public let method = "DELETE"
         let container : String
         let name : String
         
-        public typealias Response = [NSObject: AnyObject]
+        public typealias Response = Bool
         
         public init(container: String, name: String) {
             self.container = container
@@ -30,16 +30,15 @@ public extension AzureBlob {
         }
         
         public func additionalHeaders() -> [String : String] {
-            return [:]
+            return ["Content-Length":"0"]
         }
         
         public func convertResponseObject(object: AnyObject?) -> Response? {
-            return object as? Response
+            return true
         }
         
         public func responseTypes() -> Set<String>? {
             return nil
         }
     }
-    
 }

@@ -14,7 +14,7 @@ public extension AzureQueue {
         let queue : String
         let numberOfMessages : Int?
         
-        public typealias Response = [Message]
+        public typealias Response = Collection<Message>
         
         public init(queue : String, numberOfMessages : Int?) {
             self.queue = queue
@@ -39,23 +39,7 @@ public extension AzureQueue {
         }
         
         public func convertResponseObject(object: AnyObject?) -> Response? {
-            var messages : [Message] = []
-            let response = AzureStorage.xmlResponseToDictionary(object)
-            if let aDicOrArray: AnyObject = response?.valueForKeyPath("QueueMessage") {
-                var dictionaries : [NSDictionary] = []
-                if let dics = aDicOrArray as? [NSDictionary] {
-                    dictionaries = dics
-                } else {
-                    dictionaries = [(aDicOrArray as! NSDictionary)]
-                }
-                
-                for dictionary in dictionaries {
-                    if let message = Message(dictionary: dictionary) {
-                        messages.append(message)
-                    }
-                }
-            }
-            return messages
+            return ResponseUtility.responseItems(object, keyPath: "QueueMessage")
         }
         
         public func responseTypes() -> Set<String>? {

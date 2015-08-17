@@ -36,7 +36,7 @@ public extension AzureQueue {
         }
         
         public func responseTypes() -> Set<String>? {
-            return []
+            return nil
         }
     }
 }

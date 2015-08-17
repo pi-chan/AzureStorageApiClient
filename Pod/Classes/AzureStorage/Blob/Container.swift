@@ -9,9 +9,9 @@
 import Foundation
 
 public extension AzureBlob {
-    public class Container {
-        public init?(dictionary: NSDictionary) {
-            
+    public class Container : AzureStorage.Item {
+        override init(dictionary: NSDictionary) {
+            super.init(dictionary: dictionary)
         }
     }
 }

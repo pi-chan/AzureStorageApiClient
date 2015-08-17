@@ -9,14 +9,11 @@
 import Foundation
 
 public extension AzureQueue {
-    public class Queue {
-        public let name: String!
+    public class Queue : AzureStorage.Item {
+        public var name : String? { get { return rawDictionary.valueForKeyPath("Name") as? String } }
         
-        init?(dictionary: NSDictionary) {
-            name = dictionary["Name"] as? String
-            if name == nil {
-                return nil
-            }
+        override init(dictionary: NSDictionary) {
+            super.init(dictionary: dictionary)
         }
     }
 }

@@ -47,7 +47,7 @@ public extension AzureBlob {
         }
         
         public func responseTypes() -> Set<String>? {
-            return []
+            return nil
         }
     }
 }

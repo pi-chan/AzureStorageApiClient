@@ -20,12 +20,12 @@ PODS:
   - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - AzureStorageApiClient (1.0):
+  - AzureStorageApiClient (1.2):
     - AFNetworking (~> 2.5)
     - CryptoSwift (~> 0.0)
     - Regex (~> 0.2)
     - XMLDictionary (~> 1.4)
-  - CryptoSwift (0.0.12)
+  - CryptoSwift (0.0.13)
   - Nimble (1.0.0)
   - Quick (0.3.1)
   - Regex (0.2.1)
@@ -42,8 +42,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
-  AzureStorageApiClient: 95c2ed0532d881d23998ec8ce209f079668fb0d5
-  CryptoSwift: 16f1b5a768057636275b76d1c43231c2abba9e80
+  AzureStorageApiClient: 38943b36d2e636f612f9af5f64ec37b4ac6814e4
+  CryptoSwift: 33e2ba400d514a054c69e9f9f6c08a992e42f91c
   Nimble: 8bee528e5fcc403653076545db562d2b5db7bb87
   Quick: 824572d3d198d51e52cf4aa722cebf7e59952a35
   Regex: 14d9745c19442ccdf920234e50d463ba659f58c4

@@ -41,6 +41,19 @@ class ViewController: UIViewController {
         blobClient?.call(request, handler: handleResponse)
     }
     
+    func getBlobServiceProperties() {
+        let request = AzureBlob.GetBlobServicePropertiesRequest()
+        blobClient?.call(request, handler: handleResponse)
+    }
+    
+    func setBlobServiceCors() {
+        var cors = AzureBlob.CorsRule(allowedOrigins: ["http://example.com"], allowedMethods: ["POST", "PUT"], allowedHeaders: ["*"], exposedHeaders: ["*"], maxAgeInSeconds: 10000)
+        if let corsRule = cors {
+            let request = AzureBlob.SetBlobServiceCorsRequest(rules: [corsRule])
+            blobClient?.call(request, handler: handleResponse)
+        }
+    }
+    
     func createContainer() {
         let request = AzureBlob.CreateContainerRequest(container: "containername")
         blobClient?.call(request, handler: handleResponse)
@@ -48,6 +61,11 @@ class ViewController: UIViewController {
     
     func deleteContainer() {
         let request = AzureBlob.DeleteContainerRequest(container: "containername")
+        blobClient?.call(request, handler: handleResponse)
+    }
+    
+    func listBlobs() {
+        let request = AzureBlob.ListBlobsRequest(container: "containername", maxResults: nil, nextMarker: nil)
         blobClient?.call(request, handler: handleResponse)
     }
     
@@ -66,6 +84,11 @@ class ViewController: UIViewController {
     
     func getBlobProperties() {
         let request = AzureBlob.GetBlobPropertiesRequest(container: "containername", name: "file.png")
+        blobClient?.call(request, handler: handleResponse)
+    }
+    
+    func deleteBlob() {
+        let request = AzureBlob.DeleteBlobRequest(container: "containername", name: "file.png")
         blobClient?.call(request, handler: handleResponse)
     }
     

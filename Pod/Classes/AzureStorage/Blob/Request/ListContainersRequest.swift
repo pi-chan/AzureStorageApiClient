@@ -12,7 +12,7 @@ public extension AzureBlob {
     public class ListContainersRequest:  Request {
         public let method = "GET"
         
-        public typealias Response = [Container]
+        public typealias Response = Collection<Container>
         
         public init() {
         }
@@ -30,23 +30,7 @@ public extension AzureBlob {
         }
         
         public func convertResponseObject(object: AnyObject?) -> Response? {
-            var containers : [Container] = []
-            let response = AzureStorage.xmlResponseToDictionary(object)
-            if let aDicOrArray: AnyObject = response?.valueForKeyPath("Containers.Container") {
-                var dictionaries : [NSDictionary] = []
-                if let dics = aDicOrArray as? [NSDictionary] {
-                    dictionaries = dics
-                } else {
-                    dictionaries = [(aDicOrArray as! NSDictionary)]
-                }
-                
-                for dictionary in dictionaries {
-                    if let container = Container(dictionary: dictionary) {
-                        containers.append(container)
-                    }
-                }
-            }
-            return containers
+            return ResponseUtility.responseItems(object, keyPath: "Containers.Container")
         }
         
         public func responseTypes() -> Set<String>? {

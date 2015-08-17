@@ -12,7 +12,7 @@ public extension AzureQueue {
     public class ListQueuesRequest:  Request {
         public let method = "GET"
         
-        public typealias Response = [Queue]
+        public typealias Response = Collection<Queue>
         
         public init() {
         }
@@ -30,23 +30,7 @@ public extension AzureQueue {
         }
         
         public func convertResponseObject(object: AnyObject?) -> Response? {
-            var queues : [Queue] = []
-            let response = AzureStorage.xmlResponseToDictionary(object)
-            if let aDicOrArray: AnyObject = response?.valueForKeyPath("Queues.Queue") {
-                var dictionaries : [NSDictionary] = []
-                if let dics = aDicOrArray as? [NSDictionary] {
-                    dictionaries = dics
-                } else {
-                    dictionaries = [(aDicOrArray as! NSDictionary)]
-                }
-                
-                for dictionary in dictionaries {
-                    if let queue = Queue(dictionary: dictionary) {
-                        queues.append(queue)
-                    }
-                }
-            }
-            return queues
+            return ResponseUtility.responseItems(object, keyPath: "Queues.Queue")
         }
         
         public func responseTypes() -> Set<String>? {

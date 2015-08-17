@@ -89,7 +89,7 @@ extension AzureStorage {
             
             var headers = Dictionary<String, String>()
             headers["x-ms-date"] = dateString()
-            headers["x-ms-version"] = "2012-02-12"
+            headers["x-ms-version"] = "2014-02-14"
             headers.merge(request.additionalHeaders())
             
             var signer = Signer(name: name, key: key)
@@ -103,7 +103,6 @@ extension AzureStorage {
             for (key, value) in headers {
                 manager.requestSerializer.setValue(value, forHTTPHeaderField: key)
             }
-            //manager.responseSerializer = AFXMLParserResponseSerializer()
             manager.responseSerializer = AFHTTPResponseSerializer()
             manager.responseSerializer.acceptableContentTypes = request.responseTypes()
             return manager

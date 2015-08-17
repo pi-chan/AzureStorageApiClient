@@ -9,49 +9,21 @@
 import Foundation
 
 public extension AzureQueue {
-    public class Message {
-        public let messageId: String!
-        public let messageText: String!
-        public let dequeueCount: String!
-        public let expirationTime: String!
-        public let insertionTime: String!
-        public let popReceipt: String?
-        public let timeNextVisible: String?
-        public let rawDictionary : NSMutableDictionary
+    public class Message : AzureStorage.Item {
+        public var messageId: String? { get { return rawDictionary.valueForKeyPath("MessageId") as? String } }
+        public var messageText: String? { get { return rawDictionary.valueForKeyPath("MessageText") as? String } }
+        public var dequeueCount: String? { get { return rawDictionary.valueForKeyPath("DequeueCount") as? String } }
+        public var expirationTime: String? { get { return rawDictionary.valueForKeyPath("ExpirationTime") as? String } }
+        public var insertionTime: String? { get { return rawDictionary.valueForKeyPath("InsertionTime") as? String } }
+        public var popReceipt: String? { get { return rawDictionary.valueForKeyPath("PopReceipt") as? String } }
+        public var timeNextVisible: String? { get { return rawDictionary.valueForKeyPath("TimeNextVisible") as? String } }
         
-        init?(dictionary: NSDictionary) {
-            rawDictionary = NSMutableDictionary(dictionary: dictionary)
-            messageId = dictionary["MessageId"] as? String
-            dequeueCount = dictionary["DequeueCount"] as? String
-            expirationTime = dictionary["ExpirationTime"] as? String
-            insertionTime = dictionary["InsertionTime"] as? String
-            popReceipt = dictionary["PopReceipt"] as? String
-            timeNextVisible = dictionary["TimeNextVisible"] as? String
-            
-            if let encodedText = dictionary["MessageText"] as? String {
-                messageText = Message.decodeMessage(encodedText)
-                rawDictionary["MessageText"] = messageText
-            } else {
-                messageText = nil
-            }
-            
-            if messageId == nil || messageText == nil || dequeueCount == nil || expirationTime == nil || insertionTime == nil {
-                return nil
+        override init(dictionary: NSDictionary) {
+            super.init(dictionary: dictionary)
+            if var encodedText = dictionary["MessageText"] as? String {
+                rawDictionary["MessageText"] = ResponseUtility.decodeMessage(encodedText)
             }
         }
         
-        public func prop(key: String?) -> String? {
-            if let k = key {
-                return rawDictionary[k] as? String
-            }
-            return nil
-        }
-        
-        class func decodeMessage(message: String) -> String {
-            if let decodedData = NSData(base64EncodedString: message, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters) {
-                return NSString(data: decodedData, encoding: NSUTF8StringEncoding) as! String
-            }
-            return ""
-        }
     }
 }
