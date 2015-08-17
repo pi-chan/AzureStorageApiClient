@@ -17,8 +17,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        blobClient = AzureBlob.Client(accoutName: Config.Account, accessKey: Config.Key, accountDomain: Config.Domain, useHTTPS: true)
-        queueClient = AzureQueue.Client(accoutName: Config.Account, accessKey: Config.Key, accountDomain: Config.Domain, useHTTPS: true)
+        blobClient = AzureBlob.Client(accoutName: Config.Account, accessKey: Config.Key, useHTTPS: true, hostName: nil)
+        queueClient = AzureQueue.Client(accoutName: Config.Account, accessKey: Config.Key, useHTTPS: true, hostName: nil)
     }
 
     override func didReceiveMemoryWarning() {

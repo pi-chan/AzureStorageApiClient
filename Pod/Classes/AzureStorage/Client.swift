@@ -16,13 +16,14 @@ extension AzureStorage {
         let scheme : String!
         let key : String!
         let name : String!
-        let domain : String!
+        let hostName : String?
+        let defaultHost = "core.windows.net"
         
-        public init?(accoutName: String, accessKey: String, accountDomain: String, useHTTPS: Bool) {
+        public init(accoutName: String, accessKey: String, useHTTPS: Bool, hostName: String?) {
             scheme = useHTTPS ? "https" : "http"
             key = accessKey
             name = accoutName
-            domain = accountDomain
+            self.hostName = hostName
         }
         
         internal func service() -> String {
@@ -30,7 +31,11 @@ extension AzureStorage {
         }
         
         private func host() -> String {
-            return "\(name).\(service()).\(domain)"
+            if let hostname = hostName {
+                return hostname
+            } else {
+                return "\(name).\(service()).\(defaultHost)"
+            }
         }
         
         public func call<T: Request>(request: T, handler: (Response<T.Response>) -> Void = { r in }) {

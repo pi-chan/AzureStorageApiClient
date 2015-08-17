@@ -77,8 +77,7 @@ API with ✅ is supported. I'll continue to implement other APIs.
 import AzureStorageApiClient
 
 class FooBar {
-    private let client = AzureBlob.Client(accoutName: "account", accessKey: "key", accountDomain: "domain", useHTTPS: true)
-
+    private let client = AzureBlob.Client(accoutName: "account", useHTTPS: true, hostName: nil)
     func handleResponse<T>(response: Response<T>) {
         switch response {
         case .Success(let wrapper):
@@ -135,7 +134,7 @@ class FooBar {
 import AzureStorageApiClient
 
 class FooBar {
-    private let client = AzureQueue.Client(accoutName: "account", accessKey: "key", accountDomain: "domain", useHTTPS: true)
+    private let client = AzureQueue.Client(accoutName: "account", accessKey: "key", useHTTPS: true, hostName: nil)
 
     func handleResponse<T>(response: Response<T>) {
         switch response {

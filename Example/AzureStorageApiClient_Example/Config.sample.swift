@@ -9,5 +9,5 @@
 //struct Config {
 //    static let account = "YOUR STORAGE ACCOUNT NAME"
 //    static let key = "YOUR STORAGE ACCOUNT KEY"
-//    static let Domain = "core.windows.net"
+//    static let Host = "your.domain.com"
 //}
