@@ -22,13 +22,19 @@ PODS:
     - AFNetworking/NSURLSession
   - AzureStorageApiClient (1.2.2):
     - AFNetworking (~> 2.5)
+    - BrightFutures (~> 2.0)
     - CryptoSwift (~> 0.0)
     - Regex (~> 0.2)
     - XMLDictionary (~> 1.4)
+  - Box (1.2.2)
+  - BrightFutures (2.0.1):
+    - Result (~> 0.4.3)
   - CryptoSwift (0.0.13)
   - Nimble (1.0.0)
   - Quick (0.3.1)
   - Regex (0.2.1)
+  - Result (0.4.4):
+    - Box (~> 1.2)
   - XMLDictionary (1.4)
 
 DEPENDENCIES:
@@ -42,11 +48,14 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
-  AzureStorageApiClient: d23e6d2cc2eec511d7294c28d85d4afe06713c73
+  AzureStorageApiClient: 9701f4261c3a26e885d06dc2f72cc6259f279710
+  Box: a92e8aa4c099e6bc0733829665caf9e668ef53b8
+  BrightFutures: 27704272a695324b42538a2d85b20ac3f24228bd
   CryptoSwift: 33e2ba400d514a054c69e9f9f6c08a992e42f91c
   Nimble: 8bee528e5fcc403653076545db562d2b5db7bb87
   Quick: 824572d3d198d51e52cf4aa722cebf7e59952a35
   Regex: 14d9745c19442ccdf920234e50d463ba659f58c4
+  Result: b44f6bc8762bbffaf2c5df58f2c7d12c3496ced8
   XMLDictionary: f9f51601ba76678b594ab485f2b00ec1fed23724
 
 COCOAPODS: 0.38.2

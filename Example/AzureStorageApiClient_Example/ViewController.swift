@@ -8,11 +8,12 @@
 
 import UIKit
 import AzureStorageApiClient
+import BrightFutures
 
 class ViewController: UIViewController {
-    
-    var blobClient : AzureBlob.Client?
-    var queueClient : AzureQueue.Client?
+   
+    var blobClient : AzureBlob.Client!
+    var queueClient : AzureQueue.Client!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +35,10 @@ class ViewController: UIViewController {
             println(wrapper.value)
         }
     }
-    
-    // Blob
+}
+
+// MARK: Examples for Blob
+extension ViewController {
     func listContainers() {
         let request = AzureBlob.ListContainersRequest()
         blobClient?.call(request, handler: handleResponse)
@@ -91,8 +94,10 @@ class ViewController: UIViewController {
         let request = AzureBlob.DeleteBlobRequest(container: "containername", name: "file.png")
         blobClient?.call(request, handler: handleResponse)
     }
-    
-    // Queue
+}
+
+// MARK: Examples for Queue
+extension ViewController {
     func listQueues() {
         let request = AzureQueue.ListQueuesRequest()
         queueClient?.call(request, handler: handleResponse)
@@ -139,3 +144,24 @@ class ViewController: UIViewController {
     }
 }
 
+// MARK: Examples for BrightFutures' way
+extension ViewController {
+    func listCreateDelete() {
+        let req1 = AzureQueue.ListQueuesRequest()
+        queueClient.future(req1)
+            .flatMap { response -> Future<AzureQueue.CreateQueueRequest.Response, NSError> in
+                let req = AzureQueue.CreateQueueRequest(queue: "brandnewqueue")
+                return self.queueClient.future(req)
+            }
+            .flatMap { response -> Future<AzureQueue.DeleteQueueRequest.Response, NSError> in
+                let req = AzureQueue.DeleteQueueRequest(queue: "sample2")
+                return self.queueClient.future(req)
+            }
+            .onSuccess { response in
+                println(response)
+            }
+            .onFailure { error in
+                println(error)
+        }
+    }
+}

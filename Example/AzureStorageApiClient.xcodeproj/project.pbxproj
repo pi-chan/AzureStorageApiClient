@@ -12,10 +12,13 @@
 		0121007E1B79907600B20F77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0121007C1B79907600B20F77 /* Main.storyboard */; };
 		012100801B79907600B20F77 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0121007F1B79907600B20F77 /* Images.xcassets */; };
 		012100831B79907600B20F77 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 012100811B79907600B20F77 /* LaunchScreen.xib */; };
+		014A2AD01B83060D0080CA55 /* Config.sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0188E4941B79D2A30011ED1B /* Config.sample.swift */; };
+		014A2AD61B8313E90080CA55 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014A2AD41B8313AE0080CA55 /* Utility.swift */; };
 		0188E4961B79D4270011ED1B /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0188E4921B79D23D0011ED1B /* Config.swift */; };
 		0188E4971B79D4270011ED1B /* Config.sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0188E4941B79D2A30011ED1B /* Config.sample.swift */; };
+		01D1FEAD1B83017C00AEE793 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0188E4921B79D23D0011ED1B /* Config.swift */; };
 		20309A0ACBE3EF6561E7C12E /* Pods_AzureStorageApiClient_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EFF2B2A37618734BE0B4918 /* Pods_AzureStorageApiClient_Example.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		607FACEC1AFB9204008FA782 /* BlobSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* BlobSpec.swift */; };
 		C6E3051FC963E2521B07216F /* Pods_AzureStorageApiClient_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9873D75D1B6A1C85C5BE066 /* Pods_AzureStorageApiClient_Tests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -27,13 +30,14 @@
 		0121007D1B79907600B20F77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0121007F1B79907600B20F77 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = AzureStorageApiClient_Example/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		012100821B79907600B20F77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		014A2AD41B8313AE0080CA55 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		0188E4921B79D23D0011ED1B /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Config.swift; path = AzureStorageApiClient_Example/Config.swift; sourceTree = SOURCE_ROOT; };
 		0188E4941B79D2A30011ED1B /* Config.sample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Config.sample.swift; path = AzureStorageApiClient_Example/Config.sample.swift; sourceTree = SOURCE_ROOT; };
 		0EFF2B2A37618734BE0B4918 /* Pods_AzureStorageApiClient_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AzureStorageApiClient_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ED7EA27898338B9B310886A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* AzureStorageApiClient_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AzureStorageApiClient_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		607FACEB1AFB9204008FA782 /* BlobSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlobSpec.swift; sourceTree = "<group>"; };
 		72F4F2143F130BBE55F4E4B7 /* Pods-AzureStorageApiClient_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AzureStorageApiClient_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AzureStorageApiClient_Tests/Pods-AzureStorageApiClient_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		7C141CA208F15703D9232BD0 /* Pods-AzureStorageApiClient_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AzureStorageApiClient_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AzureStorageApiClient_Example/Pods-AzureStorageApiClient_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		80047CFA72C6B60704524266 /* AzureStorageApiClient.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = AzureStorageApiClient.podspec; path = ../AzureStorageApiClient.podspec; sourceTree = "<group>"; };
@@ -112,7 +116,7 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
+				607FACEB1AFB9204008FA782 /* BlobSpec.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -122,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACEA1AFB9204008FA782 /* Info.plist */,
+				014A2AD41B8313AE0080CA55 /* Utility.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -365,7 +370,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				014A2AD61B8313E90080CA55 /* Utility.swift in Sources */,
+				607FACEC1AFB9204008FA782 /* BlobSpec.swift in Sources */,
+				01D1FEAD1B83017C00AEE793 /* Config.swift in Sources */,
+				014A2AD01B83060D0080CA55 /* Config.sample.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,6 +506,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

@@ -27,4 +27,5 @@ Pod::Spec.new do |s|
   s.dependency 'CryptoSwift', '~> 0.0'
   s.dependency 'XMLDictionary', '~> 1.4'
   s.dependency 'Regex', '~> 0.2'
+  s.dependency 'BrightFutures', '~> 2.0'
 end

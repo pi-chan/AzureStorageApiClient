@@ -9,6 +9,7 @@
 import Foundation
 import AFNetworking
 import CryptoSwift
+import BrightFutures
 
 extension AzureStorage {
    
@@ -26,16 +27,40 @@ extension AzureStorage {
             self.hostName = hostName
         }
         
-        internal func service() -> String {
-            return ""
-        }
-        
-        private func host() -> String {
-            if let hostname = hostName {
-                return hostname
-            } else {
-                return "\(name).\(service()).\(defaultHost)"
+        public func future<T: Request>(request: T) -> Future<T.Response, NSError> {
+            let promise = Promise<T.Response, NSError>()
+            let handleError = { () -> Void in
+                let userInfo = [NSLocalizedDescriptionKey: "unresolved error occurred."]
+                let error = NSError(domain: "WebAPIErrorDomain", code: 0, userInfo: userInfo)
+                promise.failure(error)
             }
+            
+            let success = { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+                let statusCode = (task.response as? NSHTTPURLResponse)?.statusCode
+                switch (statusCode, request.convertResponseObject(responseObject)) {
+                case (.Some(200..<300), .Some(let response)):
+                    promise.success(response)
+                default:
+                    handleError()
+                }
+            }
+            
+            let headSuccess = { (task: NSURLSessionDataTask!) -> Void in
+                let response = task.response as? NSHTTPURLResponse
+                switch (response?.statusCode, request.convertResponseObject(response?.allHeaderFields)) {
+                case (.Some(200..<300), .Some(let response)):
+                    promise.success(response)
+                default:
+                    handleError()
+                }
+            }
+            
+            let failure = { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
+                promise.failure(error)
+            }
+            
+            callImpl(request, success: success, headSuccess: headSuccess, failure: failure)
+            return promise.future
         }
         
         public func call<T: Request>(request: T, handler: (Response<T.Response>) -> Void = { r in }) {
@@ -70,23 +95,42 @@ extension AzureStorage {
                 handler(Response(error))
             }
             
-            let url = scheme + "://" + host() + request.path()
-            let manager = configuredManager(request)
-            
-            switch request.method {
-            case "HEAD":
-                manager.HEAD(url, parameters: nil, success: headSuccess, failure: failure)
-            case "GET":
-                manager.GET(url, parameters: nil, success: success, failure: failure)
-            case "POST":
-                manager.POST(url, parameters: request.body(), success: success, failure: failure)
-            case "PUT":
-                manager.PUT(url, parameters: request.body(), success: success, failure: failure)
-            case "DELETE":
-                manager.DELETE(url, parameters: nil, success: success, failure: failure)
-            default:
-                break
+            callImpl(request, success: success, headSuccess: headSuccess, failure: failure)
+        }
+
+        internal func service() -> String {
+            return ""
+        }
+        
+        private func host() -> String {
+            if let hostname = hostName {
+                return hostname
+            } else {
+                return "\(name).\(service()).\(defaultHost)"
             }
+        }
+        
+        private func callImpl<T: Request>(request: T,
+            success: (NSURLSessionDataTask!, AnyObject!) -> Void,
+            headSuccess: (NSURLSessionDataTask!) -> Void,
+            failure: (NSURLSessionDataTask!, NSError!) -> Void) {
+                let url = scheme + "://" + host() + request.path()
+                let manager = configuredManager(request)
+                
+                switch request.method {
+                case "HEAD":
+                    manager.HEAD(url, parameters: nil, success: headSuccess, failure: failure)
+                case "GET":
+                    manager.GET(url, parameters: nil, success: success, failure: failure)
+                case "POST":
+                    manager.POST(url, parameters: request.body(), success: success, failure: failure)
+                case "PUT":
+                    manager.PUT(url, parameters: request.body(), success: success, failure: failure)
+                case "DELETE":
+                    manager.DELETE(url, parameters: nil, success: success, failure: failure)
+                default:
+                    break
+                }
         }
         
         private func configuredManager<T: Request>(request: T) -> AFHTTPSessionManager {
