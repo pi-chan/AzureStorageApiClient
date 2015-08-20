@@ -113,24 +113,25 @@ extension AzureStorage {
         private func callImpl<T: Request>(request: T,
             success: (NSURLSessionDataTask!, AnyObject!) -> Void,
             headSuccess: (NSURLSessionDataTask!) -> Void,
-            failure: (NSURLSessionDataTask!, NSError!) -> Void) {
-                let url = scheme + "://" + host() + request.path()
-                let manager = configuredManager(request)
-                
-                switch request.method {
-                case "HEAD":
-                    manager.HEAD(url, parameters: nil, success: headSuccess, failure: failure)
-                case "GET":
-                    manager.GET(url, parameters: nil, success: success, failure: failure)
-                case "POST":
-                    manager.POST(url, parameters: request.body(), success: success, failure: failure)
-                case "PUT":
-                    manager.PUT(url, parameters: request.body(), success: success, failure: failure)
-                case "DELETE":
-                    manager.DELETE(url, parameters: nil, success: success, failure: failure)
-                default:
-                    break
-                }
+            failure: (NSURLSessionDataTask!, NSError!) -> Void)
+        {
+            let url = scheme + "://" + host() + request.path()
+            let manager = configuredManager(request)
+            
+            switch request.method {
+            case "HEAD":
+                manager.HEAD(url, parameters: nil, success: headSuccess, failure: failure)
+            case "GET":
+                manager.GET(url, parameters: nil, success: success, failure: failure)
+            case "POST":
+                manager.POST(url, parameters: request.body(), success: success, failure: failure)
+            case "PUT":
+                manager.PUT(url, parameters: request.body(), success: success, failure: failure)
+            case "DELETE":
+                manager.DELETE(url, parameters: nil, success: success, failure: failure)
+            default:
+                break
+            }
         }
         
         private func configuredManager<T: Request>(request: T) -> AFHTTPSessionManager {

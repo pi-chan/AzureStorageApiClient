@@ -16,7 +16,7 @@ public extension AzureStorage {
         }
         
         public func prop(key: String) -> String? {
-            return rawDictionary[key] as? String
+            return rawDictionary.valueForKeyPath(key) as? String
         }
     }
 }
