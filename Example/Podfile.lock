@@ -21,7 +21,7 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - AzureStorageApiClient (1.2.2):
-    - AFNetworking (~> 2.5)
+    - AFNetworking (= 2.5.4)
     - BrightFutures (~> 2.0)
     - CryptoSwift (~> 0.0)
     - Regex (~> 0.2)
@@ -48,7 +48,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
-  AzureStorageApiClient: 9701f4261c3a26e885d06dc2f72cc6259f279710
+  AzureStorageApiClient: 759f154bdb9310f0a1c5f0eb12d8b3de65bbb907
   Box: a92e8aa4c099e6bc0733829665caf9e668ef53b8
   BrightFutures: 27704272a695324b42538a2d85b20ac3f24228bd
   CryptoSwift: 33e2ba400d514a054c69e9f9f6c08a992e42f91c

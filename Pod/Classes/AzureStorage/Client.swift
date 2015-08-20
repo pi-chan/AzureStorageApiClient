@@ -63,7 +63,7 @@ extension AzureStorage {
             return promise.future
         }
         
-        public func call<T: Request>(request: T, handler: (Response<T.Response>) -> Void = { r in }) {
+        public func call<T: Request>(request: T, handler: (Response<T.Response>) -> Void) {
             
             let handleError = { () -> Void in
                 let userInfo = [NSLocalizedDescriptionKey: "unresolved error occurred."]
