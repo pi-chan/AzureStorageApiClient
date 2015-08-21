@@ -30,7 +30,7 @@ public extension AzureBlob {
         }
         
         public func additionalHeaders() -> [String : String] {
-            return [:]
+            return ["Content-Length":"0"]
         }
         
         public func convertResponseObject(object: AnyObject?) -> Response? {
