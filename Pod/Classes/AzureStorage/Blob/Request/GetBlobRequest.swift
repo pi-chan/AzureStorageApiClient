@@ -19,7 +19,7 @@ public extension AzureBlob {
         
         public init(container: String, name: String, mimetype: String) {
             self.container = container
-            self.name = name
+            self.name = name.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
             self.mimetype = mimetype
         }
         

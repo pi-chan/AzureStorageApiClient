@@ -77,7 +77,7 @@ extension AzureStorage {
             if url.path == nil || url.path!.isEmpty {
                 resource = resource + "/"
             } else {
-                resource = resource + url.path!
+                resource = resource + url.path!.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
             }
             
             var array = map(url.parameters(), { (key, value) in

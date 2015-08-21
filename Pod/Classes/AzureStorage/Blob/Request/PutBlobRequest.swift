@@ -20,7 +20,7 @@ public extension AzureBlob {
         
         public init(container: String, name: String, data: NSData, mimetype: String?) {
             self.container = container
-            self.name = name
+            self.name = name.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
             self.data = data
             if let type = mimetype {
                 self.mimetype = type
