@@ -14,7 +14,7 @@ class BlobSpec: QuickSpec {
     var testBlobName : String = ""
     
     func createContainerForBlob(done: ()->Void) {
-        let request = AzureBlob.CreateContainerRequest(container: self.containerNameForBlob)
+        let request = AzureBlob.CreateContainerRequest(container: self.containerNameForBlob, accessibility: .Private)
         self.client.future(request)
             .onSuccess { response in
                 done()
@@ -57,7 +57,7 @@ class BlobSpec: QuickSpec {
         describe("Create/Delete Container") {
             it("Success") {
                 waitUntil(timeout: self.timeout) { done in
-                    let request = AzureBlob.CreateContainerRequest(container: self.testContainerName)
+                    let request = AzureBlob.CreateContainerRequest(container: self.testContainerName, accessibility: .Private)
                     self.client.future(request)
                         .flatMap { response ->  Future<AzureBlob.ListContainersRequest.Response, NSError> in
                             let req = AzureBlob.ListContainersRequest()

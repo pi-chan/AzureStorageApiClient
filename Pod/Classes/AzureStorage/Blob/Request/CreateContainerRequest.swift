@@ -9,14 +9,24 @@
 import Foundation
 
 public extension AzureBlob {
+
     public class CreateContainerRequest:  Request {
+        
+        public enum Accessibility {
+            case Private
+            case PublicBlob
+            case PublicContainer
+        }
+        
         public let method = "PUT"
         let container : String!
+        var accessibility : Accessibility = .Private
         
         public typealias Response = Bool
         
-        public init(container: String) {
+        public init(container: String, accessibility : Accessibility) {
             self.container = container
+            self.accessibility = accessibility
         }
         
         public func path() -> String {
@@ -28,7 +38,16 @@ public extension AzureBlob {
         }
         
         public func additionalHeaders() -> [String : String] {
-            return ["Content-Type": "", "Content-Length": "0"]
+            var headers = ["Content-Type": "", "Content-Length": "0"]
+            switch accessibility {
+            case .Private:
+                break
+            case .PublicBlob:
+                headers["x-ms-blob-public-access"] = "blob"
+            case .PublicContainer:
+                headers["x-ms-blob-public-access"] = "container"
+            }
+            return headers
         }
         
         public func convertResponseObject(object: AnyObject?) -> Response? {

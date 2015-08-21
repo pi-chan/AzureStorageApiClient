@@ -17,18 +17,10 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        // blobClient = AzureBlob.Client(accoutName: Config.Account, accessKey: Config.Key, useHTTPS: true, hostName: nil)
-        // queueClient = AzureQueue.Client(accoutName: Config.Account, accessKey: Config.Key, useHTTPS: true, hostName: nil)
-        blobClient = AzureBlob.Client(accoutName: Config.Account, accessKey: Config.Key, useHTTPS: true, hostName: "storageexplorer.cflat-inc.com")
-        let req = AzureBlob.ListContainersRequest()
-        blobClient.future(req).onComplete { value in
-            println(value)
-        }.onFailure { error in
-            println(error)
-        }
+        blobClient = AzureBlob.Client(accoutName: Config.Account, accessKey: Config.Key, useHTTPS: true, hostName: nil)
+        queueClient = AzureQueue.Client(accoutName: Config.Account, accessKey: Config.Key, useHTTPS: true, hostName: nil)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -65,7 +57,7 @@ extension ViewController {
     }
     
     func createContainer() {
-        let request = AzureBlob.CreateContainerRequest(container: "containername")
+        let request = AzureBlob.CreateContainerRequest(container: "containername", accessibility: .Private)
         blobClient?.call(request, handler: handleResponse)
     }
     
