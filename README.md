@@ -1,7 +1,6 @@
 # AzureStorageApiClient
 
 AzureStorageApiClient is api client library for Microsost Azure Storage in Swift.
-This library only supports MS Azure Queue Storage.
 
 ## Installation
 
