@@ -57,7 +57,7 @@ public class ResponseUtility {
         return ""
     }
 
-    private class func dictionaryToDictionaryArray(dictionary: AnyObject?) -> [NSDictionary] {
+    class func dictionaryToDictionaryArray(dictionary: AnyObject?) -> [NSDictionary] {
         var dictionaries : [NSDictionary] = []
         if let aDicOrArray: AnyObject = dictionary {
             if let dics = aDicOrArray as? [NSDictionary] {
