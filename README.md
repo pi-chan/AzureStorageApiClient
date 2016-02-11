@@ -4,7 +4,7 @@ AzureStorageApiClient is api client library for Microsost Azure Storage in Swift
 
 ## Installation
 
-### Cocoapods
+### CocoaPods
 
 ```ruby
 pod 'AzureStorageApiClient'
